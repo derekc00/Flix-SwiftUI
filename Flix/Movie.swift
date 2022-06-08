@@ -85,8 +85,8 @@ extension Movie {
     guard let title = json["title"] as? String else {
       throw SerializationError.missing("title")
     }
-    guard let popularity = json["popularity"] as? Double else {
-      throw SerializationError.missing("popularity")
+    guard let popularity = json["vote_average"] as? Double else {
+      throw SerializationError.missing("vote average")
     }
     guard let overview = json["overview"] as? String else {
       throw SerializationError.missing("overview")
@@ -107,7 +107,7 @@ extension Movie {
           throw SerializationError.missing("vote count")
         }
         return count1 > count2
-      }).prefix(3) {
+      }).suffix(from: 1).prefix(2) {
         self.additionalImages.append(try MovieImage(json: backdrop))
       }
     }
