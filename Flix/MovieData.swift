@@ -107,7 +107,7 @@ class MovieData: ObservableObject {
         Movie(title: "Movie \(idx)",
               id: idx,
               overview: "overview sample",
-              popularity: .random(in: 0.0...100.0),
+              popularity: .random(in: 1...100).rounded(),
               status: .inProduction,
               backdropUrl: "",
               posterUrl: "",

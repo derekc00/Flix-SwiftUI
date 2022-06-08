@@ -14,21 +14,9 @@ struct MovieDetails: View {
   @State private var imageIdx = 0
   let inset = EdgeInsets(top: 8, leading: 8, bottom: 8, trailing: 8)
   var body: some View {
-    GeometryReader { proxy in
       ScrollView {
         VStack(alignment: .leading, spacing: 0) {
-          TabView(selection: $imageIdx, content: {
-            KFImage(URL(string: movie.backdropUrl))
-              .requestModifier(Kingfisher.AnyModifier.authModifier)
-              .resizable()
-            ForEach(movie.additionalImages) { image in
-              KFImage(URL(string: image.url))
-                .requestModifier(Kingfisher.AnyModifier.authModifier)
-                .resizable()
-            }
-          })
-          .aspectRatio(1.779, contentMode: .fit)
-          .tabViewStyle(.page(indexDisplayMode: .never))
+          MovieImageCarousel(movie: movie)
           HStack {
             Text(movie.title)
               .font(.largeTitle)
@@ -42,12 +30,11 @@ struct MovieDetails: View {
             .padding(inset)
         }
       }
-    }
-    .onAppear {
-      MovieData.getMovieDetails(bearerToken: MovieData.bearerToken, movieId: movie.id) { updatedMovie in
-        movie = updatedMovie
+      .onAppear {
+        MovieData.getMovieDetails(bearerToken: MovieData.bearerToken, movieId: movie.id) { updatedMovie in
+          movie = updatedMovie
+        }
       }
-    }
   }
 }
 
