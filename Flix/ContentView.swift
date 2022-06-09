@@ -11,7 +11,12 @@ struct ContentView: View {
   var movieData = MovieData()
   var body: some View {
     List(movieData.movies) { movie in
-        MovieRow(movie: movie)
+      MovieRow(movie: movie)
+    }
+    .onAppear {
+      if movieData.movies.count == 0 {
+        movieData.refreshNowPlaying()
+      }
     }
   }
 }

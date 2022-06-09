@@ -21,6 +21,11 @@ class MovieData: ObservableObject {
       self.movies = nowPlayingMovies
     })
   }
+  func refreshNowPlaying() {
+    getNowPlayingMovies(bearerToken: MovieData.bearerToken, completion: { nowPlayingMovies in
+      self.movies = nowPlayingMovies
+    })
+  }
   /// This function gets movies that are currently playing in theaters.
   /// Attaches bearer token to url request for authentication.
   ///
@@ -41,7 +46,6 @@ class MovieData: ObservableObject {
     let session = URLSession(configuration: sessionConfiguration)
 
     session.dataTask(with: nowPlayingRequest) { (data, _, error) in
-       // This will run when the network request returns
       var movies: [Movie] = []
       if let error = error {
           print(error.localizedDescription)
@@ -80,7 +84,6 @@ class MovieData: ObservableObject {
     let session = URLSession(configuration: sessionConfiguration)
 
     session.dataTask(with: movieDetailRequest) { (data, _, error) in
-       // This will run when the network request returns
       var movie: Movie
       if let error = error {
           print(error.localizedDescription)

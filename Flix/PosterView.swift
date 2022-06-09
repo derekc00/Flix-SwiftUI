@@ -19,10 +19,8 @@ struct PosterView: View {
         ProgressView(progress)
       })
       .resizable()
-//      .frame(width: 185)
       .aspectRatio(contentMode: .fit)
       .cornerRadius(10)
-//      .scaleEffect(0.9)
   }
 }
 
