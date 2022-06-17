@@ -16,7 +16,7 @@ struct MovieImageCarousel: View {
       var addImageUrls = movie.additionalImages.map { movieImage in
         return movieImage.url
       }
-    addImageUrls.append(movie.backdropUrl)
+    addImageUrls.insert(movie.backdropUrl, at: 0)
     return addImageUrls
   }
   var body: some View {

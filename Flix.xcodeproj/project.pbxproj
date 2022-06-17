@@ -91,6 +91,26 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		657CD3C1285CCC68004DA53D /* Movie Details */ = {
+			isa = PBXGroup;
+			children = (
+				6539C2B8284D2CA200C59A32 /* MovieDetails.swift */,
+				6525524128505CA00087FB0D /* MovieImageCarousel.swift */,
+				6539C2C1284E1DDC00C59A32 /* RatingView.swift */,
+				652552432851C5A40087FB0D /* CarouselCircles.swift */,
+			);
+			path = "Movie Details";
+			sourceTree = "<group>";
+		};
+		657CD3C2285CCC8C004DA53D /* Now Playing */ = {
+			isa = PBXGroup;
+			children = (
+				6539C2BD284DB53300C59A32 /* PosterView.swift */,
+				6539C2B6284D283400C59A32 /* MovieRow.swift */,
+			);
+			path = "Now Playing";
+			sourceTree = "<group>";
+		};
 		659348EB2848B87E00EBCFEC = {
 			isa = PBXGroup;
 			children = (
@@ -114,19 +134,15 @@
 		659348F62848B87E00EBCFEC /* Flix */ = {
 			isa = PBXGroup;
 			children = (
+				657CD3C2285CCC8C004DA53D /* Now Playing */,
+				657CD3C1285CCC68004DA53D /* Movie Details */,
 				659348F72848B87E00EBCFEC /* FlixApp.swift */,
 				659348F92848B87E00EBCFEC /* ContentView.swift */,
-				6539C2B8284D2CA200C59A32 /* MovieDetails.swift */,
-				6525524128505CA00087FB0D /* MovieImageCarousel.swift */,
 				659348FB2848B87F00EBCFEC /* Assets.xcassets */,
 				659348FD2848B87F00EBCFEC /* Preview Content */,
 				659349222848BCA300EBCFEC /* Movie.swift */,
-				6539C2BD284DB53300C59A32 /* PosterView.swift */,
 				659349242848C02100EBCFEC /* MovieData.swift */,
-				6539C2B6284D283400C59A32 /* MovieRow.swift */,
 				6539C2BF284E073F00C59A32 /* Kingfisher+AnyModifier.swift */,
-				6539C2C1284E1DDC00C59A32 /* RatingView.swift */,
-				652552432851C5A40087FB0D /* CarouselCircles.swift */,
 			);
 			path = Flix;
 			sourceTree = "<group>";
