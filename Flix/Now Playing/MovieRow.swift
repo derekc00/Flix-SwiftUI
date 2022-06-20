@@ -10,10 +10,13 @@ import Kingfisher
 
 struct MovieRow: View {
   @State var isPresented: Bool = false
-  var movie: Movie
+  @State var movie: Movie
   var body: some View {
     Button {
       isPresented.toggle()
+      MovieData.getMovieDetails(bearerToken: MovieData.bearerToken, movieId: movie.id) { updatedMovie in
+        movie = updatedMovie
+      }
     } label: {
       HStack {
         VStack(alignment: .leading) {
@@ -27,13 +30,14 @@ struct MovieRow: View {
         }
         Spacer()
         PosterView(posterUrl: movie.posterUrl)
+          .frame(maxWidth: 150)
       }
     }
     .buttonStyle(.plain)
     .sheet(isPresented: $isPresented) {
       print("\(isPresented)")
     } content: {
-      MovieDetails(movie: movie)
+      MovieDetails(movie: $movie)
     }
 
   }

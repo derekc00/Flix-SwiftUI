@@ -13,7 +13,8 @@ struct RatingView: View {
   var body: some View {
     ZStack {
       Text(String(describing: rating))
-        .font(.subheadline)
+        .font(.headline)
+        .fontWeight(.bold)
       Circle()
         .trim(from: 0, to: trim)
         .stroke(
@@ -37,7 +38,12 @@ struct RatingView: View {
 struct RatingView_Previews: PreviewProvider {
   static var rating: Double = 5.0
   static var previews: some View {
-    RatingView(rating: rating)
+    Group {
+      RatingView(rating: rating)
         .frame(width: 100, height: 100)
+      RatingView(rating: rating)
+        .preferredColorScheme(.dark)
+        .frame(width: 100, height: 100)
+    }
     }
 }

@@ -26,6 +26,29 @@ class MovieData: ObservableObject {
       self.movies = nowPlayingMovies
     })
   }
+  func loadJson () {
+    var movies: [Movie] = []
+      if let url = Bundle.main.url(forResource: "NowPlayingMoviesTestData", withExtension: "json") {
+        do {
+            let data = try Data(contentsOf: url)
+            guard let dataDictionary =
+                   try JSONSerialization.jsonObject(with: data, options: [])
+                   as? [String: Any]
+            else {
+              fatalError()
+            }
+            for case let result in dataDictionary["results"]
+                 as? [[String: Any]] ?? [[:]] {
+              if let movie = try? Movie(json: result) {
+                movies.append(movie)
+              }
+            }
+        } catch {
+            print("error:\(error)")
+        }
+      }
+    self.movies = movies
+  }
   /// This function gets movies that are currently playing in theaters.
   /// Attaches bearer token to url request for authentication.
   ///

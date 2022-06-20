@@ -15,6 +15,7 @@
 		6539C2BE284DB53300C59A32 /* PosterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6539C2BD284DB53300C59A32 /* PosterView.swift */; };
 		6539C2C0284E073F00C59A32 /* Kingfisher+AnyModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6539C2BF284E073F00C59A32 /* Kingfisher+AnyModifier.swift */; };
 		6539C2C2284E1DDC00C59A32 /* RatingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6539C2C1284E1DDC00C59A32 /* RatingView.swift */; };
+		657CD3C5285D2B45004DA53D /* NowPlayingMoviesTestData.json in Resources */ = {isa = PBXBuildFile; fileRef = 657CD3C4285D2B45004DA53D /* NowPlayingMoviesTestData.json */; };
 		659348F82848B87E00EBCFEC /* FlixApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 659348F72848B87E00EBCFEC /* FlixApp.swift */; };
 		659348FA2848B87E00EBCFEC /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 659348F92848B87E00EBCFEC /* ContentView.swift */; };
 		659348FC2848B87F00EBCFEC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 659348FB2848B87F00EBCFEC /* Assets.xcassets */; };
@@ -51,6 +52,7 @@
 		6539C2BD284DB53300C59A32 /* PosterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PosterView.swift; sourceTree = "<group>"; };
 		6539C2BF284E073F00C59A32 /* Kingfisher+AnyModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Kingfisher+AnyModifier.swift"; sourceTree = "<group>"; };
 		6539C2C1284E1DDC00C59A32 /* RatingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RatingView.swift; sourceTree = "<group>"; };
+		657CD3C4285D2B45004DA53D /* NowPlayingMoviesTestData.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = NowPlayingMoviesTestData.json; sourceTree = "<group>"; };
 		659348F42848B87E00EBCFEC /* Flix.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Flix.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		659348F72848B87E00EBCFEC /* FlixApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlixApp.swift; sourceTree = "<group>"; };
 		659348F92848B87E00EBCFEC /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -111,6 +113,16 @@
 			path = "Now Playing";
 			sourceTree = "<group>";
 		};
+		657CD3C3285D29C3004DA53D /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				659349222848BCA300EBCFEC /* Movie.swift */,
+				659349242848C02100EBCFEC /* MovieData.swift */,
+				6539C2BF284E073F00C59A32 /* Kingfisher+AnyModifier.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
 		659348EB2848B87E00EBCFEC = {
 			isa = PBXGroup;
 			children = (
@@ -134,15 +146,14 @@
 		659348F62848B87E00EBCFEC /* Flix */ = {
 			isa = PBXGroup;
 			children = (
+				657CD3C4285D2B45004DA53D /* NowPlayingMoviesTestData.json */,
+				657CD3C3285D29C3004DA53D /* Models */,
 				657CD3C2285CCC8C004DA53D /* Now Playing */,
 				657CD3C1285CCC68004DA53D /* Movie Details */,
 				659348F72848B87E00EBCFEC /* FlixApp.swift */,
 				659348F92848B87E00EBCFEC /* ContentView.swift */,
 				659348FB2848B87F00EBCFEC /* Assets.xcassets */,
 				659348FD2848B87F00EBCFEC /* Preview Content */,
-				659349222848BCA300EBCFEC /* Movie.swift */,
-				659349242848C02100EBCFEC /* MovieData.swift */,
-				6539C2BF284E073F00C59A32 /* Kingfisher+AnyModifier.swift */,
 			);
 			path = Flix;
 			sourceTree = "<group>";
@@ -284,6 +295,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				659348FF2848B87F00EBCFEC /* Preview Assets.xcassets in Resources */,
+				657CD3C5285D2B45004DA53D /* NowPlayingMoviesTestData.json in Resources */,
 				659348FC2848B87F00EBCFEC /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

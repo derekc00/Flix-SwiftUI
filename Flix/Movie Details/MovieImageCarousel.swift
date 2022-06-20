@@ -11,24 +11,16 @@ import struct Kingfisher.AnyModifier
 
 struct MovieImageCarousel: View {
   @State var imageIdx = 0
-  var movie: Movie
-  var allMovieImageUrls: [String] {
-      var addImageUrls = movie.additionalImages.map { movieImage in
-        return movieImage.url
-      }
-    addImageUrls.insert(movie.backdropUrl, at: 0)
-    return addImageUrls
-  }
+  @Binding var movie: Movie
   var body: some View {
     ZStack(alignment: .bottom) {
       TabView {
-        ForEach(Array(zip(allMovieImageUrls.indices, allMovieImageUrls)), id: \.0) { idx, image in
+        ForEach(Array(zip(movie.getAllImageUrls().indices, movie.getAllImageUrls())), id: \.0) { idx, image in
           KFImage(URL(string: image))
             .requestModifier(Kingfisher.AnyModifier.authModifier)
             .resizable()
             .onAppear {
               imageIdx = idx
-              print(allMovieImageUrls)
             }
         }
       }
@@ -41,7 +33,8 @@ struct MovieImageCarousel: View {
 }
 
 struct MovieImageCarousel_Previews: PreviewProvider {
-    static var previews: some View {
-      MovieImageCarousel(movie: MovieData.generateTestMovie())
-    }
+  @State static var movie: Movie = MovieData.generateTestMovie()
+  static var previews: some View {
+    MovieImageCarousel(movie: $movie)
+  }
 }

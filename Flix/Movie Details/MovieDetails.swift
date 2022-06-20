@@ -10,13 +10,13 @@ import struct Kingfisher.KFImage
 import struct Kingfisher.AnyModifier
 
 struct MovieDetails: View {
-  @State var movie: Movie
+  @Binding var movie: Movie
   @State private var imageIdx = 0
   let inset = EdgeInsets(top: 8, leading: 8, bottom: 8, trailing: 8)
   var body: some View {
       ScrollView {
         VStack(alignment: .leading, spacing: 0) {
-          MovieImageCarousel(movie: movie)
+          MovieImageCarousel(movie: $movie)
           HStack {
             Text(movie.title)
               .font(.largeTitle)
@@ -30,16 +30,12 @@ struct MovieDetails: View {
             .padding(inset)
         }
       }
-      .onAppear {
-        MovieData.getMovieDetails(bearerToken: MovieData.bearerToken, movieId: movie.id) { updatedMovie in
-          movie = updatedMovie
-        }
-      }
   }
 }
 
 struct MovieDetails_Previews: PreviewProvider {
+  @State static var movie: Movie = MovieData.generateTestMovie()
     static var previews: some View {
-      MovieDetails(movie: MovieData.generateTestMovie())
+      MovieDetails(movie: $movie)
     }
 }

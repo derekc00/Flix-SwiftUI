@@ -127,6 +127,13 @@ extension Movie {
     self.backdropUrl = "https://image.tmdb.org/t/p/w500\(backdropPath)?\(MovieData.apiKey)"
     self.posterUrl = "https://image.tmdb.org/t/p/w154\(posterPath)?\(MovieData.apiKey)"
   }
+  func getAllImageUrls() -> [String] {
+    var urls = self.additionalImages.map { movieImage in
+      return movieImage.url
+    }
+    urls.insert(self.backdropUrl, at: 0)
+    return urls
+  }
 }
 enum SerializationError: Error {
   case missing(String)
